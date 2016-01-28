@@ -73,6 +73,12 @@ public class playerController : MonoBehaviour {
 	void Update () {
 
         startGame();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            print("Game Exit");
+            Application.Quit();
+        }
 	}
 
     void FixedUpdate()
@@ -257,4 +263,5 @@ public class playerController : MonoBehaviour {
         }
 
     }
+
 }
