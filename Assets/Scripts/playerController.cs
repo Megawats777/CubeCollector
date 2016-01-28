@@ -243,6 +243,7 @@ public class playerController : MonoBehaviour {
     // Allow the player to start the game
     void startGame()
     {
+        Cursor.visible = false;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
