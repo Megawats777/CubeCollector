@@ -33,8 +33,8 @@ public class gameManager : MonoBehaviour {
     [HideInInspector]
     public int pickUpAmount;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         objectMesh = GetComponent<MeshRenderer>();
 
@@ -50,18 +50,20 @@ public class gameManager : MonoBehaviour {
 
         print(targetScore);
 
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    }
+
+    // Update is called once per frame
+    void Update() {
+
+        restartGame();
+
+    }
 
     // Add to the player's score
     public void addToScore(int value)
     {
         playerScore = playerScore + value;
-            
+
         if (playerScore >= targetScore)
         {
             print("You Win!");
@@ -112,6 +114,29 @@ public class gameManager : MonoBehaviour {
     {
         playerSphere.canMove = false;
         playerSphere.setPlayerPhysics(false);
+    }
+
+    // Enable player movement
+    void enablePlayerMovement()
+    {
+        playerSphere.canMove = true;
+        playerSphere.setPlayerPhysics(true);
+    }
+
+    // Allow the player to restart the game
+    void restartGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (pickUpAmount <= 0 & isGameActive == true)
+            {
+                enablePlayerMovement();
+                isGameActive = false;
+                playerSphere.respawnProcess();
+                playerSphere.setPlayerPhysics(false);
+                playerSphere.canStartGame = true;
+            }
+        }
     }
 
 }

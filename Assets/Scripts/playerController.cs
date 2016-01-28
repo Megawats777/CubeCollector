@@ -73,8 +73,9 @@ public class playerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
         startGame();
+
+        exitGame();
 	}
 
     void FixedUpdate()
@@ -194,7 +195,7 @@ public class playerController : MonoBehaviour {
     }
 
     // Respawning process
-    void respawnProcess()
+    public void respawnProcess()
     {
         // Set the player's new location
         transform.position = respawnLocation;
@@ -243,7 +244,16 @@ public class playerController : MonoBehaviour {
     // Allow the player to start the game
     void startGame()
     {
-        Cursor.visible = false;
+        // Toggle the visibility of the cursor based on if the game is playing in the editor or the standalone player
+        if (Application.isEditor == false)
+        {
+            Cursor.visible = false;
+        }
+        else
+        {
+            Cursor.visible = true;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -261,7 +271,7 @@ public class playerController : MonoBehaviour {
 
     }
 
-    // Allow the player to exit the gam
+    // Allow the player to exit the game
     void exitGame()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
