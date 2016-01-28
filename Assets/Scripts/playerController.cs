@@ -52,7 +52,8 @@ public class playerController : MonoBehaviour {
     public Vector3 respawnLocation;
 
 	// Use this for initialization
-	void Start () {
+	void Start ()
+    {
 
         sphereBody = GetComponent<Rigidbody>();
 
@@ -70,15 +71,10 @@ public class playerController : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
         startGame();
-
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            print("Game Exit");
-            Application.Quit();
-        }
 	}
 
     void FixedUpdate()
@@ -264,4 +260,13 @@ public class playerController : MonoBehaviour {
 
     }
 
+    // Allow the player to exit the gam
+    void exitGame()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            print("Game Exit");
+            Application.Quit();
+        }
+    }
 }
