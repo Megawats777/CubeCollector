@@ -19,7 +19,7 @@ public class hudManager : MonoBehaviour {
 	void Update () {
 
         // Set the content of the hud score text
-        if (gameManagerRef.pickUpAmount > 0)
+        if (gameManagerRef.pickUpAmount > 0 & gameManagerRef.isGameActive == true)
         {
             scoreText.text = "" + gameManagerRef.pickUpAmount + " Remaining";
         }
@@ -27,6 +27,10 @@ public class hudManager : MonoBehaviour {
         {
             // Content of score text will contain nothing
             scoreText.text = null;
+        }
+        else if (gameManagerRef.isGameActive == false)
+        {
+            scoreText.text = "Press Space to start game";
         }
 	}
 }

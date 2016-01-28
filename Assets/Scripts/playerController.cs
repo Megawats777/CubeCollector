@@ -32,10 +32,14 @@ public class playerController : MonoBehaviour {
 
     // Checks if the gameobject can move
     [HideInInspector]
-    public bool canMove = true;
+    public bool canMove = false;
 
     // Can be damaged
     private bool damagedEnabled = true;
+
+    // Checks if the player is able to start the game
+    [HideInInspector]
+    public bool canStartGame = true;
 
     // Get the name of the level
     public string sceneName;
@@ -61,11 +65,14 @@ public class playerController : MonoBehaviour {
         // Set the respawn point for the player
         setRespawnPoint();
 
+        setPlayerPhysics(false);
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+
+        startGame();
 	}
 
     void FixedUpdate()
@@ -89,8 +96,14 @@ public class playerController : MonoBehaviour {
             // Hide the player
             playerMesh.enabled = false;
 
-            // Disable the player's gravity
-            sphereBody.useGravity = false;
+            // Disable the player's physics
+            setPlayerPhysics(false);
+
+            // Set the active state of the game to false
+            gameManagerRef.isGameActive = false;
+
+            // Allow the player to start the game
+            canStartGame = true;
 
             // Wait a few seconds
 
@@ -221,6 +234,26 @@ public class playerController : MonoBehaviour {
         {
             sphereBody.useGravity = false;
             sphereBody.isKinematic = true;
+        }
+
+    }
+
+    // Allow the player to start the game
+    void startGame()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (canStartGame == true)
+            {
+                canMove = true;
+                setPlayerPhysics(true);
+                canStartGame = false;
+
+                print("Game Start!");
+
+                gameManagerRef.isGameActive = true;
+            }
         }
 
     }

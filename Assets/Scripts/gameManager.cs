@@ -17,7 +17,7 @@ public class gameManager : MonoBehaviour {
     public int setTargetScore = 0;
 
     // Sets if the game is active
-    public bool isGameActive = true;
+    public bool isGameActive = false;
 
     // Sets if the pickup counter can be increased
     private bool canIncreasePickUpCount = true;
