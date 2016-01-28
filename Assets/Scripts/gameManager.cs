@@ -111,8 +111,7 @@ public class gameManager : MonoBehaviour {
     void disablePlayerMovement()
     {
         playerSphere.canMove = false;
-        playerSphere.sphereBody.useGravity = false;
-        playerSphere.sphereBody.isKinematic = true;
+        playerSphere.setPlayerPhysics(false);
     }
 
 }

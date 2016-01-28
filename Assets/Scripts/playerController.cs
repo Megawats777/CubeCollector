@@ -208,4 +208,20 @@ public class playerController : MonoBehaviour {
             levelPickups[i].enablePickup();
         }
     }
+
+    // Disable or enable player physics
+    public void setPlayerPhysics(bool choice)
+    {
+        if (choice == true)
+        {
+            sphereBody.useGravity = true;
+            sphereBody.isKinematic = false;
+        }
+        else if (choice == false)
+        {
+            sphereBody.useGravity = false;
+            sphereBody.isKinematic = true;
+        }
+
+    }
 }
