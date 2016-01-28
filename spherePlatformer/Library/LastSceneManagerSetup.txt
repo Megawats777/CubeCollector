@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/Scenes/M_SandBox_1.unity
-  isLoaded: 1
-  isActive: 1
