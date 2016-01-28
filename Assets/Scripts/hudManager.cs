@@ -19,7 +19,14 @@ public class hudManager : MonoBehaviour {
 	void Update () {
 
         // Set the content of the hud score text
-        scoreText.text = "" + gameManagerRef.pickUpAmount + " Remaining";
-	
+        if (gameManagerRef.pickUpAmount > 0)
+        {
+            scoreText.text = "" + gameManagerRef.pickUpAmount + " Remaining";
+        }
+        else if (gameManagerRef.pickUpAmount <= 0)
+        {
+            // Content of score text will contain nothing
+            scoreText.text = null;
+        }
 	}
 }
