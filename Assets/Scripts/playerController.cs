@@ -51,6 +51,15 @@ public class playerController : MonoBehaviour {
     [HideInInspector]
     public Vector3 respawnLocation;
 
+
+    private bool justPushedUp = false;
+
+    private bool justPushedDown = false;
+
+    private bool justPushedLeft = false;
+
+    private bool justPushedRight = false;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -78,6 +87,7 @@ public class playerController : MonoBehaviour {
         exitGame();
 	}
 
+    // Called every frame before physics calculations
     void FixedUpdate()
     {
         pushUp(sphereBody);
@@ -94,24 +104,27 @@ public class playerController : MonoBehaviour {
     {
         if (damagedEnabled == true)
         {
-            print("Hit!");
+            if (collision.gameObject.tag == "Wall")
+            {
+                print("Hit!");
 
-            // Hide the player
-            playerMesh.enabled = false;
+                // Hide the player
+                playerMesh.enabled = false;
 
-            // Disable the player's physics
-            setPlayerPhysics(false);
+                // Disable the player's physics
+                setPlayerPhysics(false);
 
-            // Set the active state of the game to false
-            gameManagerRef.isGameActive = false;
+                // Set the active state of the game to false
+                gameManagerRef.isGameActive = false;
 
-            // Allow the player to start the game
-            canStartGame = true;
+                // Allow the player to start the game
+                canStartGame = true;
 
-            // Wait a few seconds
+                // Wait a few seconds
 
-            // Perform the respawn process
-            respawnProcess();
+                // Perform the respawn process
+                respawnProcess();
+            }
         }
     }
 
@@ -123,6 +136,12 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
+
+                // If I just pushed down then subtract my push up force by an amount
+
+
+                // If not then keep the same pushUpForce amount
+
                 if (Input.GetKeyDown(pushUpInput))
                 {
                     rb.AddForce(new Vector3(0, pushUpForce, 0));
@@ -138,6 +157,10 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
+
+                // If I just pushed up then subtract my push down force by an amount
+
+
                 if (Input.GetKeyDown(pushDownInput))
                 {
                     rb.AddForce(new Vector3(0, pushDownForce, 0));
@@ -254,7 +277,7 @@ public class playerController : MonoBehaviour {
             Cursor.visible = true;
         }
 
-
+        // When the user presses space start the game
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (canStartGame == true)
