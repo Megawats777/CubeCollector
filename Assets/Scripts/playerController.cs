@@ -142,7 +142,7 @@ public class playerController : MonoBehaviour {
 
                 // If not then keep the same pushUpForce amount
 
-                if (Input.GetKeyDown(pushUpInput))
+                if (Input.GetButton("PushUp"))
                 {
                     rb.AddForce(new Vector3(0, pushUpForce, 0));
                 }
@@ -161,7 +161,7 @@ public class playerController : MonoBehaviour {
                 // If I just pushed up then subtract my push down force by an amount
 
 
-                if (Input.GetKeyDown(pushDownInput))
+                if (Input.GetButton("PushDown"))
                 {
                     rb.AddForce(new Vector3(0, pushDownForce, 0));
                 }
@@ -176,7 +176,7 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
-                if (Input.GetKeyDown(pushLeftInput))
+                if (Input.GetButton("PushLeft"))
                 {
                     rb.AddForce(new Vector3(pushLeftForce, 0, 0));
                 }
@@ -192,7 +192,7 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
-                if (Input.GetKeyDown(pushRightInput))
+                if (Input.GetButton("PushRight"))
                 {
                     rb.AddForce(new Vector3(pushRightForce, 0, 0));
                 }
