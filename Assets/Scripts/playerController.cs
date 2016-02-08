@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class playerController : MonoBehaviour {
 
     // Reference to gameManager class
+    [HideInInspector]
     public gameManager gameManagerRef;
 
     // Variables to quickly configure input
@@ -51,6 +52,7 @@ public class playerController : MonoBehaviour {
     [HideInInspector]
     public Vector3 respawnLocation;
 
+    int pickupAmount;
 
     private bool justPushedUp = false;
 
@@ -74,6 +76,12 @@ public class playerController : MonoBehaviour {
 
         // Set the respawn point for the player
         setRespawnPoint();
+
+        // Reference all level pickups
+        getPickups();
+
+        // Reference the gameManager
+        getGameManager();
 
         setPlayerPhysics(false);
 
@@ -200,6 +208,36 @@ public class playerController : MonoBehaviour {
         }
     }
 
+    // Reference all the gameManagers in the level
+    private void getGameManager()
+    {
+        gameManagerRef = FindObjectOfType<gameManager>();
+
+        if (gameManagerRef)
+        {
+            print("Gamemanager refrenced");
+        }
+        else
+        {
+            print("Gamemanager reference failed");
+        }
+    }
+
+    // Reference the cubePickups in the level
+    private void getPickups()
+    {
+        levelPickups = FindObjectsOfType<pickUp>();
+
+        foreach (pickUp cubePickups in levelPickups)
+        {
+            pickupAmount = pickupAmount + 1;
+        }
+
+        print(pickupAmount + " cubes referenced");
+    }
+
+
+
     // Destroy all pickups in the level
     void destroyPickups()
     {
@@ -251,11 +289,13 @@ public class playerController : MonoBehaviour {
     // Disable or enable player physics
     public void setPlayerPhysics(bool choice)
     {
+        // If the choice was true set physics enabled to true
         if (choice == true)
         {
             sphereBody.useGravity = true;
             sphereBody.isKinematic = false;
         }
+        // If the choice was true set physics enabled to false
         else if (choice == false)
         {
             sphereBody.useGravity = false;

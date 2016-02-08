@@ -23,11 +23,12 @@ public class gameManager : MonoBehaviour {
     private bool canIncreasePickUpCount = true;
 
     // Reference to the player sphere
+    [HideInInspector]
     public playerController playerSphere;
 
     // References to the pickup objects
     [HideInInspector]
-    public GameObject[] pickUps;
+    public pickUp[] pickUps;
 
     // Store the amount of cube pickups
     [HideInInspector]
@@ -43,6 +44,9 @@ public class gameManager : MonoBehaviour {
 
         // Get all the cube pickups in the level
         getPickUps();
+
+        // Reference the playerSphere
+        getPlayer();
 
         playerScore = 0;
 
@@ -73,15 +77,31 @@ public class gameManager : MonoBehaviour {
     // Get references to all cube pickups
     private void getPickUps()
     {
-        pickUps = GameObject.FindGameObjectsWithTag("cubePickup");
+        pickUps = FindObjectsOfType<pickUp>();
 
-        foreach (GameObject cubePickups in pickUps)
+        foreach (pickUp cubePickups in pickUps)
         {
             pickUpAmount = pickUpAmount + 1;
         }
-
+       
         print("There are " + pickUpAmount + " cubes");
     }
+
+    // Reference the player
+    private void getPlayer()
+    {
+        playerSphere = FindObjectOfType<playerController>();
+
+        if(playerSphere)
+        {
+            print("PlayerSphere referenced");
+        }
+        else
+        {
+            print("PlayerSphere reference failed");
+        }
+    }
+
 
     // Reduce pickUp amount
     public void reducePickups()
@@ -138,5 +158,23 @@ public class gameManager : MonoBehaviour {
             }
         }
     }
+
+    // Pickup reference palet code
+    /*
+       GameObject foundPickups = GameObject.Find("pickUp");
+       pickUps = pickUps.GetComponent<pickUp>();
+       pickUpAmount = pickUpAmount + 1;
+       */
+
+    /*
+    foreach (GameObject cubePickups in pickUps)
+    {
+        pickUps = GetComponent<pickUp>();
+        pickUpAmount = pickUpAmount + 1;
+    }
+    */
+
+
+
 
 }
