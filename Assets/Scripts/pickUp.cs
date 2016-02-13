@@ -24,6 +24,9 @@ public class pickUp : MonoBehaviour {
         objectMesh = GetComponent<MeshRenderer>();
         colliderBox = GetComponent<BoxCollider>();
 
+        // Reference the gameManager
+        getGameManager();
+
         gameManagerRef.playerScore = 0;
 	}
 	
@@ -38,6 +41,13 @@ public class pickUp : MonoBehaviour {
     {
         transform.Rotate(new Vector3(0, rotationRate, rotationRate)* Time.deltaTime);
     }
+    
+    // Reference gameManager
+    void getGameManager()
+    {
+        gameManagerRef = FindObjectOfType<gameManager>();
+    }
+
 
     // When the trigger is overlaped
     void OnTriggerEnter(Collider other)
