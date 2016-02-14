@@ -43,6 +43,7 @@ public class playerController : MonoBehaviour {
     public bool canStartGame = true;
 
     // Get the name of the level
+    [HideInInspector]
     public string sceneName;
 
     // Reference to all cube pickups in the level
@@ -52,6 +53,12 @@ public class playerController : MonoBehaviour {
     // Store the respawn location for the player
     [HideInInspector]
     public Vector3 respawnLocation;
+
+    // Audio source when the player collides with a wall
+    private AudioSource collisionAudioSource;
+
+    // Audio clip for player collision
+    public AudioClip collisionAudioClip;
 
     int pickupAmount;
 
@@ -71,6 +78,8 @@ public class playerController : MonoBehaviour {
 
         playerMesh = GetComponent<MeshRenderer>();
 
+        collisionAudioSource = GetComponent<AudioSource>();
+
         pushDownForce = pushDownForce * -1;
 
         pushLeftForce = pushLeftForce * -1;
@@ -86,6 +95,8 @@ public class playerController : MonoBehaviour {
 
         setPlayerPhysics(false);
 
+        // Set collision audio
+        setCollisionClip();
 	}
 	
 	// Update is called once per frame
@@ -99,12 +110,16 @@ public class playerController : MonoBehaviour {
     // Called every frame before physics calculations
     void FixedUpdate()
     {
+        // Push the sphere up
         pushUp(sphereBody);
 
+        // Push the sphere down
         pushDown(sphereBody);
 
+        // Push the sphere left
         pushLeft(sphereBody);
 
+        // Push the sphere right
         pushRight(sphereBody);
     }
 
@@ -116,6 +131,9 @@ public class playerController : MonoBehaviour {
             if (collision.gameObject.tag == "Wall")
             {
                 print("Hit!");
+
+                // Play collision audio
+                playCollisionAudio();
 
                 // Hide the player
                 playerMesh.enabled = false;
@@ -145,12 +163,6 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
-
-                // If I just pushed down then subtract my push up force by an amount
-
-
-                // If not then keep the same pushUpForce amount
-
                 if (Input.GetButton("PushUp"))
                 {
                     rb.AddForce(new Vector3(0, pushUpForce, 0));
@@ -166,10 +178,6 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
-
-                // If I just pushed up then subtract my push down force by an amount
-
-
                 if (Input.GetButton("PushDown"))
                 {
                     rb.AddForce(new Vector3(0, pushDownForce, 0));
@@ -237,6 +245,17 @@ public class playerController : MonoBehaviour {
         print(pickupAmount + " cubes referenced");
     }
 
+    // Set collision audio
+    private void setCollisionClip()
+    {
+        collisionAudioSource.clip = collisionAudioClip;
+    }
+
+    // Play collision audio
+    private void playCollisionAudio()
+    {
+        collisionAudioSource.Play();
+    }
 
 
     // Destroy all pickups in the level
