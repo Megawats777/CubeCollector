@@ -244,7 +244,7 @@ public class playerController : MonoBehaviour {
     {
         for (int i = 0; i < levelPickups.Length; i++)
         {
-            levelPickups[i].disablePickups();
+            levelPickups[i].disablePickup();
         }
     }
 

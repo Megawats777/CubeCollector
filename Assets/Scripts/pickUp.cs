@@ -10,49 +10,74 @@ public class pickUp : MonoBehaviour {
     public int scoreValue = 10;
 
     // Reference mesh render component
-    private  MeshRenderer objectMesh;
+    private MeshRenderer objectMesh;
 
     // Reference mesh collider component
     private BoxCollider colliderBox;
 
+    // Reference to the audio source component
+    private AudioSource collisionSoundSource;
+
     // Reference the gameManager class
+    [HideInInspector]
     public gameManager gameManagerRef;
 
-	// Use this for initialization
-	void Start () {
+    // Sound that plays when the pickUp is collected
+    public AudioClip collectedSound;
+
+    // Use this for initialization
+    void Start() {
 
         objectMesh = GetComponent<MeshRenderer>();
         colliderBox = GetComponent<BoxCollider>();
+        collisionSoundSource = GetComponent<AudioSource>();
 
         // Reference the gameManager
         getGameManager();
 
         gameManagerRef.playerScore = 0;
-	}
-	
-	// Update is called once per frame
-	void Update ()
+
+        // Set pickup collision sound
+        setCollisionSound();
+    }
+
+    // Update is called once per frame
+    void Update()
     {
         rotateObject();
-	}
+    }
 
     // Rotates the gameobject
     void rotateObject()
     {
-        transform.Rotate(new Vector3(0, rotationRate, rotationRate)* Time.deltaTime);
+        transform.Rotate(new Vector3(0, rotationRate, rotationRate) * Time.deltaTime);
     }
-    
+
     // Reference gameManager
     void getGameManager()
     {
         gameManagerRef = FindObjectOfType<gameManager>();
     }
 
+    // Set pickup collision sound
+    private void setCollisionSound()
+    {
+        collisionSoundSource.clip = collectedSound;
+    }
+
+    // Play collision sound
+    private void playCollisionSound()
+    {
+        collisionSoundSource.Play();
+    }
+
 
     // When the trigger is overlaped
     void OnTriggerEnter(Collider other)
     {
-        disablePickups();
+        playCollisionSound();
+
+        disablePickup();
     }
 
     // Renables pickups
@@ -75,7 +100,7 @@ public class pickUp : MonoBehaviour {
     }
 
     // Disables pickups
-    public void disablePickups()
+    public void disablePickup()
     {
         if (gameManagerRef != null)
         {
