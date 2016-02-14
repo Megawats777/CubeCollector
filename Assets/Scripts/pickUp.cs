@@ -25,6 +25,9 @@ public class pickUp : MonoBehaviour {
     // Sound that plays when the pickUp is collected
     public AudioClip collectedSound;
 
+    // Sound played when the pickUp is the last in the level and is collected
+    public AudioClip finalCollectedSound;
+
     // Use this for initialization
     void Start() {
 
@@ -37,8 +40,6 @@ public class pickUp : MonoBehaviour {
 
         gameManagerRef.playerScore = 0;
 
-        // Set pickup collision sound
-        setCollisionSound();
     }
 
     // Update is called once per frame
@@ -62,12 +63,23 @@ public class pickUp : MonoBehaviour {
     // Set pickup collision sound
     private void setCollisionSound()
     {
-        collisionSoundSource.clip = collectedSound;
+        if (gameManagerRef.pickUpAmount > 1)
+        {
+            collisionSoundSource.clip = collectedSound;
+        }
+        else if (gameManagerRef.pickUpAmount == 1)
+        {
+            collisionSoundSource.clip = finalCollectedSound;
+        }
     }
 
     // Play collision sound
     private void playCollisionSound()
     {
+        // Set pickup collision sound
+        setCollisionSound();
+
+        // Play the collision sound
         collisionSoundSource.Play();
     }
 
@@ -75,6 +87,7 @@ public class pickUp : MonoBehaviour {
     // When the trigger is overlaped
     void OnTriggerEnter(Collider other)
     {
+        // Play the collision sound
         playCollisionSound();
 
         disablePickup();
