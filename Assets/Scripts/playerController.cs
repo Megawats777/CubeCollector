@@ -46,6 +46,7 @@ public class playerController : MonoBehaviour {
     public string sceneName;
 
     // Reference to all cube pickups in the level
+    [HideInInspector]
     public pickUp[] levelPickups;
 
     // Store the respawn location for the player
