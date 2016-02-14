@@ -4,6 +4,7 @@ using System.Collections;
 
 public class hudManager : MonoBehaviour {
 
+    [HideInInspector]
     public gameManager gameManagerRef;
 
     private Text scoreText;
@@ -12,6 +13,9 @@ public class hudManager : MonoBehaviour {
 	void Start () {
 
         scoreText = GetComponent<Text>();
+
+        // Reference the gameManager
+        getGameManager();
 
 	}
 	
@@ -33,4 +37,10 @@ public class hudManager : MonoBehaviour {
             scoreText.text = "Press Space to start game";
         }
 	}
+
+    // Reference the gameManager
+    private void getGameManager()
+    {
+        gameManagerRef = FindObjectOfType<gameManager>();
+    }
 }

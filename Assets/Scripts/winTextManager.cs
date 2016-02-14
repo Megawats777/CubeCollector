@@ -15,7 +15,10 @@ public class winTextManager : MonoBehaviour {
 	void Start () {
 
         winLabel = GetComponent<Text>();
-	
+
+        // Reference the gameManager
+        getGameManager();
+
 	}
 	
 	// Update is called once per frame
@@ -29,6 +32,11 @@ public class winTextManager : MonoBehaviour {
         {
             winLabel.text = " ";
         }
-
 	}
+
+    // Reference the gameManager
+    private void getGameManager()
+    {
+        gameManagerRef = FindObjectOfType<gameManager>();
+    }
 }
