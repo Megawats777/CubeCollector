@@ -154,7 +154,7 @@ public class gameManager : MonoBehaviour {
                 isGameActive = false;
                 playerSphere.respawnProcess();
                 playerSphere.setPlayerPhysics(false);
-                playerSphere.canStartGame = true;
+                playerSphere.canStartGame = false;
             }
         }
     }
