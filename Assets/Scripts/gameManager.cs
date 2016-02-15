@@ -34,6 +34,8 @@ public class gameManager : MonoBehaviour {
     [HideInInspector]
     public int pickUpAmount;
 
+    int num = 0;
+
     // Use this for initialization
     void Start()
     {
@@ -54,12 +56,19 @@ public class gameManager : MonoBehaviour {
 
         print(targetScore);
 
+
     }
 
     // Update is called once per frame
     void Update() {
 
         restartGame();
+
+    }
+
+    // Game Clock
+    private void gameClock()
+    {
 
     }
 
