@@ -49,6 +49,13 @@ public class gameManager : MonoBehaviour {
     // Default clock length
     private float defaultClockLength;
 
+    // Clock Audio Source
+    [HideInInspector]
+    public AudioSource clockSoundSource;
+
+    // Clock Audio Clip
+    public AudioClip clockTickSound;
+
     // Use this for initialization
     void Start()
     {
@@ -63,6 +70,12 @@ public class gameManager : MonoBehaviour {
         // Reference the playerSphere
         getPlayer();
 
+        // Get the audio source component
+        getClockAudioSource();
+
+        // Set clock audio clip
+        setClockAudioClip();
+
         playerScore = 0;
 
         targetScore = setTargetScore;
@@ -70,7 +83,6 @@ public class gameManager : MonoBehaviour {
         defaultClockLength = clocklength;
 
         print(targetScore);
-
 
     }
 
@@ -82,6 +94,7 @@ public class gameManager : MonoBehaviour {
         gameClock();
 
         gameClockCheck();
+        
     }
 
     // Game Clock
@@ -90,6 +103,11 @@ public class gameManager : MonoBehaviour {
         if (isGameActive == true && clocklength > 0 && isClockActive == true)
         {
             clocklength = clocklength - Time.deltaTime;
+            
+            if (clocklength < 1)
+            {
+                clockSoundSource.Play();
+            }
         }
     }
 
@@ -163,6 +181,17 @@ public class gameManager : MonoBehaviour {
         }
     }
 
+    // Get audio source
+    private void getClockAudioSource()
+    {
+        clockSoundSource = GetComponent<AudioSource>();
+    }
+
+    // Set clock audio clip
+    private void setClockAudioClip()
+    {
+        clockSoundSource.clip = clockTickSound;
+    }
 
     // Reduce pickUp amount
     public void reducePickups()
@@ -175,8 +204,10 @@ public class gameManager : MonoBehaviour {
         {
             print("All cubes collected you win!");
 
+            // Reset the game clock
             resetClock();
 
+            // Set isClockActive to false
             isClockActive = false;
 
             // Disable player movement
