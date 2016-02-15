@@ -57,7 +57,7 @@ public class ClockTextManager : MonoBehaviour {
         // Otherwise set the clock color to white
         else
         {
-            clockText.color = Color.white;
+            clockText.color = Color.black;
         }
     }
 
