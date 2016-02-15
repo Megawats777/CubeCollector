@@ -34,7 +34,8 @@ public class gameManager : MonoBehaviour {
     [HideInInspector]
     public int pickUpAmount;
 
-    int num = 0;
+    // Clock Number
+    float clock = 0;
 
     // Use this for initialization
     void Start()
@@ -64,12 +65,15 @@ public class gameManager : MonoBehaviour {
 
         restartGame();
 
+        gameClock();
     }
 
     // Game Clock
     private void gameClock()
     {
-
+        clock = (int)clock + Time.deltaTime;
+        print(clock);
+        
     }
 
     // Add to the player's score
