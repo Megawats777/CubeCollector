@@ -23,6 +23,16 @@ public class ClockTextManager : MonoBehaviour {
 	void Update ()
     {
         // Update the content of clockText
-        clockText.text = "" + (int)gameManagerRef.clocklength;
+        clockText.text = "Time: " + (int)gameManagerRef.clocklength;
+
+        // If the game clock reaches zero
+        if (gameManagerRef.clocklength < 1)
+        {
+            clockText.text = null;
+        }
+        else if (gameManagerRef.pickUpAmount == 0)
+        {
+            clockText.text = null;
+        }
 	}
 }

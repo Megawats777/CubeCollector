@@ -114,7 +114,7 @@ public class gameManager : MonoBehaviour {
             playerSphere.canStartGame = true;
 
             // Reset the player's locaiton to its initial spawn location
-            playerSphere.transform.position = playerSphere.respawnLocation;
+            playerSphere.respawnProcess();
         }
     }
 
