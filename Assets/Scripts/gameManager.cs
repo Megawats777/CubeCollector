@@ -104,6 +104,7 @@ public class gameManager : MonoBehaviour {
         {
             clocklength = clocklength - Time.deltaTime;
             
+            // If the clocklength is less than 1 then play a sound
             if (clocklength < 1)
             {
                 clockSoundSource.Play();
