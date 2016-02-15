@@ -8,11 +8,13 @@ public class playerController : MonoBehaviour {
     [HideInInspector]
     public gameManager gameManagerRef;
 
+    /*
     // Variables to quickly configure input
     public KeyCode pushUpInput = KeyCode.W;
     public KeyCode pushDownInput = KeyCode.S;
     public KeyCode pushLeftInput = KeyCode.A;
     public KeyCode pushRightInput = KeyCode.D;
+    */
 
     // Variables to adjust force amounts
     public float pushUpForce = 100;

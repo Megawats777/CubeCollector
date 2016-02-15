@@ -35,7 +35,7 @@ public class gameManager : MonoBehaviour {
     public int pickUpAmount;
 
     // Clock Number
-    float clock = 0;
+    public float clock = 10;
 
     // Use this for initialization
     void Start()
@@ -71,8 +71,8 @@ public class gameManager : MonoBehaviour {
     // Game Clock
     private void gameClock()
     {
-        clock = (int)clock + Time.deltaTime;
-        print(clock);
+        clock = clock + Time.deltaTime;
+        print((int)clock);
         
     }
 
