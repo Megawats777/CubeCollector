@@ -33,7 +33,7 @@ public class ClockTextManager : MonoBehaviour {
     private void setTextContent()
     {
         // Update the content of clockText
-        clockText.text = "" + (int)gameManagerRef.clocklength;
+        clockText.text = "Time " + (int)gameManagerRef.clocklength;
 
         // If the game clock reaches zero
         if (gameManagerRef.clocklength < 1)
