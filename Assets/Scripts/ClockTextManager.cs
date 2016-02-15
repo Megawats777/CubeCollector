@@ -49,10 +49,12 @@ public class ClockTextManager : MonoBehaviour {
     // Set the color of the text
     private void setTextColour()
     {
+        // If the clocklength is 5 and below then set the clock color to red
         if (gameManagerRef.clocklength <= 6)
         {
             clockText.color = Color.red;
         }
+        // Otherwise set the clock color to white
         else
         {
             clockText.color = Color.white;
