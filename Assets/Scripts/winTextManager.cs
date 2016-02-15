@@ -28,6 +28,10 @@ public class winTextManager : MonoBehaviour {
         {
             winLabel.text = "You Win!";
         }
+        else if (gameManagerRef.clocklength < 1 )
+        {
+            winLabel.text = "Game Over";
+        }
         else
         {
             winLabel.text = " ";

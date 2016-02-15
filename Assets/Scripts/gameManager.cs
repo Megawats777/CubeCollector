@@ -8,15 +8,19 @@ public class gameManager : MonoBehaviour {
     private MeshRenderer objectMesh;
 
     // Hold the player's score
+    [HideInInspector]
     public int playerScore = 0;
 
     // The target score for the level
+    [HideInInspector]
     private int targetScore = 80;
 
     // Sets the target score for the level
+    [HideInInspector]
     public int setTargetScore = 0;
 
     // Sets if the game is active
+    [HideInInspector]
     public bool isGameActive = false;
 
     // Sets if the pickup counter can be increased
@@ -35,7 +39,15 @@ public class gameManager : MonoBehaviour {
     public int pickUpAmount;
 
     // Clock Number
-    public float clock = 10;
+    [Range (5, 150)]
+    public float clocklength = 10;
+
+    // Is the clock active
+    [HideInInspector]
+    public bool isClockActive = false;
+
+    // Default clock length
+    private float defaultClockLength;
 
     // Use this for initialization
     void Start()
@@ -55,6 +67,8 @@ public class gameManager : MonoBehaviour {
 
         targetScore = setTargetScore;
 
+        defaultClockLength = clocklength;
+
         print(targetScore);
 
 
@@ -66,14 +80,48 @@ public class gameManager : MonoBehaviour {
         restartGame();
 
         gameClock();
+
+        gameClockCheck();
     }
 
     // Game Clock
     private void gameClock()
     {
-        clock = clock + Time.deltaTime;
-        print((int)clock);
-        
+        if (isGameActive == true && clocklength > 0 && isClockActive == true)
+        {
+            clocklength = clocklength - Time.deltaTime;
+        }
+    }
+
+    // Check the status of the game clock
+    private void gameClockCheck()
+    {
+        if (clocklength < 1)
+        {
+            // Reset the game clock
+            resetClock();
+
+            // Set is clock active to false
+            isClockActive = false;
+
+            // Set is game active to false
+            isGameActive = false;
+
+            // Disable the player's movement
+            disablePlayerMovement();
+
+            // Allow the player to start the game
+            playerSphere.canStartGame = true;
+
+            // Reset the player's locaiton to its initial spawn location
+            playerSphere.transform.position = playerSphere.respawnLocation;
+        }
+    }
+
+    // Reset clock
+    public void resetClock()
+    {
+        clocklength = defaultClockLength;
     }
 
     // Add to the player's score
@@ -126,6 +174,10 @@ public class gameManager : MonoBehaviour {
         if (pickUpAmount == 0)
         {
             print("All cubes collected you win!");
+
+            resetClock();
+
+            isClockActive = false;
 
             // Disable player movement
             disablePlayerMovement();

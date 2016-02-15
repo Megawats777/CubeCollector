@@ -44,6 +44,10 @@ public class playerController : MonoBehaviour {
     [HideInInspector]
     public bool canStartGame = true;
 
+    // Checks if collisions would end the game
+    [HideInInspector]
+    public bool canCollide = true;
+
     // Get the name of the level
     [HideInInspector]
     public string sceneName;
@@ -64,6 +68,7 @@ public class playerController : MonoBehaviour {
 
     int pickupAmount;
 
+    /*
     private bool justPushedUp = false;
 
     private bool justPushedDown = false;
@@ -71,6 +76,7 @@ public class playerController : MonoBehaviour {
     private bool justPushedLeft = false;
 
     private bool justPushedRight = false;
+    */
 
 	// Use this for initialization
 	void Start ()
@@ -107,6 +113,12 @@ public class playerController : MonoBehaviour {
         startGame();
 
         exitGame();
+
+        // If the game clock reaches zero then set canCollide to false
+        if (gameManagerRef.clocklength < 1)
+        {
+            canCollide = false;
+        }
 	}
 
     // Called every frame before physics calculations
@@ -132,27 +144,33 @@ public class playerController : MonoBehaviour {
         {
             if (collision.gameObject.tag == "Wall")
             {
-                print("Hit!");
+                if (canCollide == true)
+                {
+                    print("Hit!");
 
-                // Play collision audio
-                playCollisionAudio();
+                    // Play collision audio
+                    playCollisionAudio();
 
-                // Hide the player
-                playerMesh.enabled = false;
+                    // Hide the player
+                    playerMesh.enabled = false;
 
-                // Disable the player's physics
-                setPlayerPhysics(false);
+                    // Disable the player's physics
+                    setPlayerPhysics(false);
 
-                // Set the active state of the game to false
-                gameManagerRef.isGameActive = false;
+                    // Set the active state of the game to false
+                    gameManagerRef.isGameActive = false;
 
-                // Allow the player to start the game
-                canStartGame = true;
+                    // Allow the player to start the game
+                    canStartGame = true;
 
-                // Wait a few seconds
+                    // Reset the game clock
+                    gameManagerRef.resetClock();
 
-                // Perform the respawn process
-                respawnProcess();
+                    // Wait a few seconds
+
+                    // Perform the respawn process
+                    respawnProcess();
+                }
             }
         }
     }
@@ -351,6 +369,7 @@ public class playerController : MonoBehaviour {
                 print("Game Start!");
 
                 gameManagerRef.isGameActive = true;
+                gameManagerRef.isClockActive = true;
             }
         }
 
