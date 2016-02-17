@@ -123,9 +123,6 @@ public class gameManager : MonoBehaviour {
             // Set is clock active to false
             isClockActive = false;
 
-            // Set is game active to false
-            isGameActive = false;
-
             // Disable the player's movement
             disablePlayerMovement();
 
