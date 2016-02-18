@@ -90,6 +90,7 @@ public class pickUp : MonoBehaviour {
         // Play the collision sound
         playCollisionSound();
 
+        // Disable the pickup
         disablePickup();
     }
 
