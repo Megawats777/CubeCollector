@@ -115,7 +115,7 @@ public class playerController : MonoBehaviour {
         exitGame();
 
         // If the game clock reaches zero then set canCollide to false
-        if (gameManagerRef.clocklength < 1)
+        if (gameManagerRef.clockLength < 1)
         {
             canCollide = false;
         }
@@ -370,6 +370,9 @@ public class playerController : MonoBehaviour {
 
                 gameManagerRef.isGameActive = true;
                 gameManagerRef.isClockActive = true;
+
+                // Add one second to the clock when the gamestarts
+                gameManagerRef.clockLength++;
             }
         }
 

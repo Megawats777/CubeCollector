@@ -28,7 +28,7 @@ public class winTextManager : MonoBehaviour {
         {
             winLabel.text = "You Win!";
         }
-        else if (gameManagerRef.clocklength < 1 )
+        else if (gameManagerRef.clockLength < 1 )
         {
             winLabel.text = "Game Over";
         }

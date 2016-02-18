@@ -40,7 +40,7 @@ public class gameManager : MonoBehaviour {
 
     // Clock Number
     [Range (5, 150)]
-    public float clocklength = 10;
+    public float clockLength = 10;
 
     // Is the clock active
     [HideInInspector]
@@ -56,6 +56,10 @@ public class gameManager : MonoBehaviour {
     // Clock Audio Clip
     public AudioClip clockTickSound;
 
+    // Reference the mainHUD
+    [HideInInspector]
+    public hudManager mainHUD;
+
     // Use this for initialization
     void Start()
     {
@@ -70,6 +74,9 @@ public class gameManager : MonoBehaviour {
         // Reference the playerSphere
         getPlayer();
 
+        // Reference the hudManager
+        mainHUD = FindObjectOfType<hudManager>();
+
         // Get the audio source component
         getClockAudioSource();
 
@@ -80,7 +87,7 @@ public class gameManager : MonoBehaviour {
 
         targetScore = setTargetScore;
 
-        defaultClockLength = clocklength;
+        defaultClockLength = clockLength;
 
         print(targetScore);
 
@@ -100,12 +107,12 @@ public class gameManager : MonoBehaviour {
     // Game Clock
     private void gameClock()
     {
-        if (isGameActive == true && clocklength > 0 && isClockActive == true)
+        if (isGameActive == true && clockLength > 0 && isClockActive == true)
         {
-            clocklength = clocklength - Time.deltaTime;
+            clockLength = clockLength - Time.deltaTime;
             
             // If the clocklength is less than 1 then play a sound
-            if (clocklength < 1)
+            if (clockLength < 1)
             {
                 clockSoundSource.Play();
             }
@@ -115,7 +122,7 @@ public class gameManager : MonoBehaviour {
     // Check the status of the game clock
     private void gameClockCheck()
     {
-        if (clocklength < 1)
+        if (clockLength < 1)
         {
             // Reset the game clock
             resetClock();
@@ -131,13 +138,16 @@ public class gameManager : MonoBehaviour {
 
             // Reset the player's locaiton to its initial spawn location
             playerSphere.respawnProcess();
+
+            // Set is game active to false
+            isGameActive = false;
         }
     }
 
     // Reset clock
     public void resetClock()
     {
-        clocklength = defaultClockLength;
+        clockLength = defaultClockLength;
     }
 
     // Add to the player's score

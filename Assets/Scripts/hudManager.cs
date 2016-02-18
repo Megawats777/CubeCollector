@@ -7,7 +7,8 @@ public class hudManager : MonoBehaviour {
     [HideInInspector]
     public gameManager gameManagerRef;
 
-    private Text scoreText;
+    [HideInInspector]
+    public Text scoreText;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +33,7 @@ public class hudManager : MonoBehaviour {
             // Content of score text will contain nothing
             scoreText.text = null;
         }
-        else if (gameManagerRef.isGameActive == false)
+        else if (gameManagerRef.isGameActive == false || gameManagerRef.isClockActive == false)
         {
             scoreText.text = "Press Space to start game";
         }

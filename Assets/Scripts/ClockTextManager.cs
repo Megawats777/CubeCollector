@@ -33,10 +33,10 @@ public class ClockTextManager : MonoBehaviour {
     private void setTextContent()
     {
         // Update the content of clockText
-        clockText.text = "Time " + (int)gameManagerRef.clocklength;
+        clockText.text = "Time " + (int)gameManagerRef.clockLength;
 
         // If the game clock reaches zero
-        if (gameManagerRef.clocklength < 1)
+        if (gameManagerRef.clockLength < 1)
         {
             clockText.text = null;
         }
@@ -50,7 +50,7 @@ public class ClockTextManager : MonoBehaviour {
     private void setTextColour()
     {
         // If the clocklength is 5 and below then set the clock color to red
-        if (gameManagerRef.clocklength <= 6)
+        if (gameManagerRef.clockLength <= 6)
         {
             clockText.color = Color.red;
         }
