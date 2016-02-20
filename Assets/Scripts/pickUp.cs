@@ -1,22 +1,27 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class pickUp : MonoBehaviour {
+public class pickUp : MonoBehaviour
+{
 
     // The rotation rate for the gameObject
     public float rotationRate = 20;
 
     // The score gained from this object
+    [HideInInspector]
     public int scoreValue = 10;
 
     // Reference mesh render component
-    private MeshRenderer objectMesh;
+    [HideInInspector]
+    public MeshRenderer objectMesh;
 
     // Reference mesh collider component
-    private BoxCollider colliderBox;
+    [HideInInspector]
+    public BoxCollider colliderBox;
 
     // Reference to the audio source component
-    private AudioSource collisionSoundSource;
+    [HideInInspector]
+    public AudioSource collisionSoundSource;
 
     // Reference the gameManager class
     [HideInInspector]
@@ -29,7 +34,8 @@ public class pickUp : MonoBehaviour {
     public AudioClip finalCollectedSound;
 
     // Use this for initialization
-    void Start() {
+    void Start()
+    {
 
         objectMesh = GetComponent<MeshRenderer>();
         colliderBox = GetComponent<BoxCollider>();
@@ -49,7 +55,7 @@ public class pickUp : MonoBehaviour {
     }
 
     // Rotates the gameobject
-    void rotateObject()
+    public void rotateObject()
     {
         transform.Rotate(new Vector3(0, rotationRate, rotationRate) * Time.deltaTime);
     }
