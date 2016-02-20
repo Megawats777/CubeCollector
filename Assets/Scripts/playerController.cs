@@ -119,6 +119,11 @@ public class playerController : MonoBehaviour {
         {
             canCollide = false;
         }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Application.Quit();
+        }
 	}
 
     // Called every frame before physics calculations
@@ -378,13 +383,18 @@ public class playerController : MonoBehaviour {
 
     }
 
-    // Allow the player to exit the game
+    // Allow the player to exit the current level
     void exitGame()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            print("Game Exit");
-            Application.Quit();
+            if (gameManagerRef.pickUpAmount == 0)
+            {
+                print("Game Exit");
+                SceneManager.LoadSceneAsync("M_SandBox_1");
+            }
+
+
         }
     }
 }
