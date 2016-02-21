@@ -45,5 +45,23 @@ public class TimePickUp : pickUp
 
         // Disable the pickup
         disablePickup();
+
+        // Set the pitch of the sound source
+        setAudioPitch();
+    }
+
+    // Set the pitch of the object's audio source
+    private void setAudioPitch()
+    {
+        // If there is more than one pickup in the level then reduce the pitch
+        if (gameManagerRef.pickUpAmount > 1)
+        {
+            collisionSoundSource.pitch = 0.8f;
+        }
+        // Otherwise set the pitch to normal
+        else
+        {
+            collisionSoundSource.pitch = 1.0f;
+        }
     }
 }
