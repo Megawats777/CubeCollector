@@ -153,7 +153,7 @@ public class gameManager : MonoBehaviour {
     // Add to the current time remaining
     public void increaseClock(int increaseAmount)
     {
-        clockLength = clockLength + increaseAmount;
+        clockLength = clockLength + increaseAmount + 1;
         print("Time Extended");
     }
 
