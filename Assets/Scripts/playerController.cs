@@ -146,16 +146,16 @@ public class playerController : MonoBehaviour {
     void FixedUpdate()
     {
         // Push the sphere up
-        pushUp(sphereBody);
+        StartCoroutine(pushUp(sphereBody));
 
         // Push the sphere down
-        pushDown(sphereBody);
+        StartCoroutine(pushDown(sphereBody));
 
         // Push the sphere left
-        pushLeft(sphereBody);
+        StartCoroutine(pushLeft(sphereBody));
 
         // Push the sphere right
-        pushRight(sphereBody);
+        StartCoroutine(pushRight(sphereBody));
     }
 
     // When the player collides with an object
@@ -198,7 +198,7 @@ public class playerController : MonoBehaviour {
 
 
     // Pushes the sphere up
-    void pushUp(Rigidbody rb)
+    IEnumerator pushUp(Rigidbody rb)
     {
         if (isPossessed == true)
         {
@@ -210,10 +210,13 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
+
+        // Return no value
+        yield return null;
     }
 
     // Pushes the sphere down
-    void pushDown(Rigidbody rb)
+    IEnumerator pushDown(Rigidbody rb)
     {
         if (isPossessed == true)
         {
@@ -225,10 +228,12 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
+        // Return no value
+        yield return null;
     }
 
     // Pushes the sphere to the left
-    void pushLeft(Rigidbody rb)
+    IEnumerator pushLeft(Rigidbody rb)
     {
         if (isPossessed == true)
         {
@@ -240,11 +245,12 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
-
+        // Return no value
+        yield return null;
     }
 
     // Pushes the sphere to the right
-    void pushRight(Rigidbody rb)
+    IEnumerator pushRight(Rigidbody rb)
     {
         if (isPossessed == true)
         {
@@ -256,6 +262,8 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
+        // Return no value
+        yield return null;
     }
 
     // Reference all the gameManagers in the level
