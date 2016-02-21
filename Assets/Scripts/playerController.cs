@@ -66,6 +66,10 @@ public class playerController : MonoBehaviour {
     // Audio clip for player collision
     public AudioClip collisionAudioClip;
 
+    // Reference the fadeImage class
+    [HideInInspector]
+    public FadeScreenManager fadeImageRef;
+
     int pickupAmount;
 
     /*
@@ -87,6 +91,9 @@ public class playerController : MonoBehaviour {
         playerMesh = GetComponent<MeshRenderer>();
 
         collisionAudioSource = GetComponent<AudioSource>();
+
+        // Get the fade image class
+        fadeImageRef = FindObjectOfType<FadeScreenManager>();
 
         pushDownForce = pushDownForce * -1;
 
@@ -123,6 +130,15 @@ public class playerController : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Application.Quit();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            fadeImageRef.setFadingOut(false);
+        }
+        else if (Input.GetKeyDown(KeyCode.X))
+        {
+            fadeImageRef.setFadingOut(true);
         }
 	}
 
