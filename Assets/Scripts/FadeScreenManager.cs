@@ -40,8 +40,6 @@ public class FadeScreenManager : MonoBehaviour
     {
         // Set fade image opacity
         setImageOpactiy();
-
-        print(fadeOpacity);
 	}
 
     // Set fade image opacity
@@ -53,7 +51,7 @@ public class FadeScreenManager : MonoBehaviour
         // If the image is fading out
         if (fadingOut == true && fadingIn == false)
         {
-            fadeOpacity = Mathf.Clamp(fadeOpacity, 0, 1) - 0.01f; ;
+            fadeOpacity = Mathf.Clamp(fadeOpacity, 0, 1) - 0.01f;
         }
 
         // If the image is fading in
