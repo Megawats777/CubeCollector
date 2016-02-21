@@ -26,10 +26,9 @@ public class FadeScreenManager : MonoBehaviour
         // The initial image opacity
         fadeOpacity = 1;
 
-        fadingOut = true;
-
-        fadingIn = false;
-
+        // Set if the image is fading out to black first
+        setFadingOut(true);
+        
         // Get the image component
         fadeImage = GetComponent<Image>();
 
