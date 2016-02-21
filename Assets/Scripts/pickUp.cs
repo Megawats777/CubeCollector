@@ -67,7 +67,7 @@ public class pickUp : MonoBehaviour
     }
 
     // Set pickup collision sound
-    private void setCollisionSound()
+    public void setCollisionSound()
     {
         if (gameManagerRef.pickUpAmount > 1)
         {
@@ -80,7 +80,7 @@ public class pickUp : MonoBehaviour
     }
 
     // Play collision sound
-    private void playCollisionSound()
+    public void playCollisionSound()
     {
         // Set pickup collision sound
         setCollisionSound();
