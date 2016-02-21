@@ -37,7 +37,7 @@ public class FadeScreenManager : MonoBehaviour
         // If the opacity of the image is equal or less than one and is greater than 0 then decrease the opacity
         if (fadeOpacity <= 1 && fadeOpacity > 0)
         {
-            fadeOpacity = fadeOpacity - 1;
+            fadeOpacity = fadeOpacity - 0.01f ;
         }
 
         
