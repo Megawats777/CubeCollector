@@ -10,11 +10,26 @@ public class FadeScreenManager : MonoBehaviour
 
     // Opacity of the fadeImage
     [HideInInspector]
-    public float fadeOpacity = 1;
+    public float fadeOpacity = 0;
+
+    // Is the image fading out of black
+    [HideInInspector]
+    public bool fadingOut = false;
+
+    // Is the image fading in to black
+    [HideInInspector]
+    public bool fadingIn = true;
 
 	// Use this for initialization
 	void Start ()
     {
+        // The initial image opacity
+        fadeOpacity = 1;
+
+        fadingOut = true;
+
+        fadingIn = false;
+
         // Get the image component
         fadeImage = GetComponent<Image>();
 
@@ -34,16 +49,42 @@ public class FadeScreenManager : MonoBehaviour
         // Set the alpha value of the fadeImage
         fadeImage.color = new Color(0, 0, 0, fadeOpacity);
 
-        // If the opacity of the image is equal or less than one and is greater than 0 then decrease the opacity
-        if (fadeOpacity <= 1 && fadeOpacity > 0)
+        // If the image is fading out
+        if (fadingOut == true && fadingIn == false)
         {
-            fadeOpacity = fadeOpacity - 0.01f;
+            // If the opacity of the image is equal or less than one and is greater than 0 then decrease the opacity
+            if (fadeOpacity <= 1 && fadeOpacity > 0)
+            {
+                fadeOpacity = fadeOpacity - 0.01f;
+            }
         }
 
-        
-
-
+        // If the image is fading in
+        if (fadingIn == true && fadingOut == false)
+        {
+            if (fadeOpacity >= 0 && fadeOpacity <= 1)
+            {
+                fadeOpacity = fadeOpacity + 0.01f;
+            }
+        }
     }
 
+    // Set the if the image would fade out or not
+    public void setFadingOut(bool choice)
+    {
+        // If choice is set to true then set fading out to true
+        if (choice == true)
+        {
+            fadingOut = true;
+            fadingIn = false;
+        }
+        // Otherwise set fading out to false and fading in to true
+        else if (choice == false)
+        {
+            fadingOut = false;
+            fadingIn = true;
+        }
+
+    }
 
 }
