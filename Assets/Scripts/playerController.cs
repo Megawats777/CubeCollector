@@ -146,16 +146,16 @@ public class playerController : MonoBehaviour {
     void FixedUpdate()
     {
         // Push the sphere up
-        StartCoroutine(pushUp(sphereBody));
+        pushUp(sphereBody);
 
         // Push the sphere down
-        StartCoroutine(pushDown(sphereBody));
+        pushDown(sphereBody);
 
         // Push the sphere left
-        StartCoroutine(pushLeft(sphereBody));
+        pushLeft(sphereBody);
 
         // Push the sphere right
-        StartCoroutine(pushRight(sphereBody));
+        pushRight(sphereBody);
     }
 
     // When the player collides with an object
@@ -198,7 +198,7 @@ public class playerController : MonoBehaviour {
 
 
     // Pushes the sphere up
-    IEnumerator pushUp(Rigidbody rb)
+    void pushUp(Rigidbody rb)
     {
         if (isPossessed == true)
         {
@@ -210,13 +210,10 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
-
-        // Return no value
-        yield return null;
     }
 
     // Pushes the sphere down
-    IEnumerator pushDown(Rigidbody rb)
+    void pushDown(Rigidbody rb)
     {
         if (isPossessed == true)
         {
@@ -228,12 +225,11 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
-        // Return no value
-        yield return null;
+        
     }
 
     // Pushes the sphere to the left
-    IEnumerator pushLeft(Rigidbody rb)
+    void pushLeft(Rigidbody rb)
     {
         if (isPossessed == true)
         {
@@ -245,12 +241,11 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
-        // Return no value
-        yield return null;
+        
     }
 
     // Pushes the sphere to the right
-    IEnumerator pushRight(Rigidbody rb)
+    void pushRight(Rigidbody rb)
     {
         if (isPossessed == true)
         {
@@ -262,8 +257,6 @@ public class playerController : MonoBehaviour {
                 }
             }
         }
-        // Return no value
-        yield return null;
     }
 
     // Reference all the gameManagers in the level
@@ -410,7 +403,7 @@ public class playerController : MonoBehaviour {
     // Allow the player to exit the current level
     void exitGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetButtonDown("Pause"))
         {
             if (gameManagerRef.pickUpAmount == 0)
             {
