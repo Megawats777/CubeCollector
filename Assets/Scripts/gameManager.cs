@@ -250,10 +250,9 @@ public class gameManager : MonoBehaviour {
         {
             if (pickUpAmount <= 0 & isGameActive == true)
             {
-                enablePlayerMovement();
                 isGameActive = false;
                 playerSphere.respawnProcess();
-                playerSphere.setPlayerPhysics(false);
+                disablePlayerMovement();
                 playerSphere.canStartGame = true;
             }
         }
