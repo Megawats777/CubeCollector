@@ -408,7 +408,7 @@ public class playerController : MonoBehaviour {
             if (gameManagerRef.pickUpAmount == 0)
             {
                 print("Game Exit");
-                SceneManager.LoadSceneAsync("M_SandBox_1");
+                SceneManager.LoadSceneAsync("M_Menu");
             }
 
 
