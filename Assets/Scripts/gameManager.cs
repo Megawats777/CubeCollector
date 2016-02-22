@@ -157,17 +157,6 @@ public class gameManager : MonoBehaviour {
         print("Time Extended");
     }
 
-    // Add to the player's score
-    public void addToScore(int value)
-    {
-        playerScore = playerScore + value;
-
-        if (playerScore >= targetScore)
-        {
-            print("You Win!");
-        }
-    }
-
     // Get references to all cube pickups
     private void getPickUps()
     {

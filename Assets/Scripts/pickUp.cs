@@ -134,10 +134,7 @@ public class pickUp : MonoBehaviour
 
             // Disable the entire gameobject
             enabled = false;
-
-            // Add to the player's score
-            gameManagerRef.addToScore(scoreValue);
-
+            
             // Reduce the pickUp amount
             gameManagerRef.reducePickups();
         }
