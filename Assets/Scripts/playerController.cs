@@ -127,18 +127,10 @@ public class playerController : MonoBehaviour {
             canCollide = false;
         }
 
+        /*--DEBUG QUIT COMMAND--*/
         if (Input.GetKeyDown(KeyCode.Q))
         {
             Application.Quit();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Z))
-        {
-            fadeImageRef.setFadingOut(false);
-        }
-        else if (Input.GetKeyDown(KeyCode.X))
-        {
-            fadeImageRef.setFadingOut(true);
         }
 	}
 
