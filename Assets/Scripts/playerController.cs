@@ -395,14 +395,10 @@ public class playerController : MonoBehaviour {
     // Allow the player to exit the current level
     void exitGame()
     {
-        if (Input.GetButtonDown("Pause"))
-        {
-            if (gameManagerRef.pickUpAmount == 0)
-            {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {            
                 print("Game Exit");
                 SceneManager.LoadSceneAsync("M_Menu");
-            }
-
 
         }
     }
