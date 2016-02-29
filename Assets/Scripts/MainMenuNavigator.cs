@@ -22,36 +22,20 @@ public class MainMenuNavigator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        // Exit the game
-        exitGame();
+       
 	}
 
-    /*
-    // Level selection 
-    private void selectLevel()
+    // Open a level
+    public void openLevel(string levelName)
     {
-        // Select level one
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            // If level One exists
-            if (levelNames[0] != null)
-            {
-                canSelectLevel = false;
-                SceneManager.LoadSceneAsync(levelNames[0]);
-            }
-        }
-
-    
-
+        SceneManager.LoadScene(levelName);
     }
-    */
+
 
     // Exit the game
-    private void exitGame()
+    public void exitGame()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Application.Quit();
-        }
+        Application.Quit();
+        print("Game Closed");
     }
 }

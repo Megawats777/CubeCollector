@@ -99,6 +99,16 @@ public class playerController : MonoBehaviour {
 
         pushLeftForce = pushLeftForce * -1;
 
+        // Hide the player's mouse cursor
+        if (Application.isEditor)
+        {
+            Cursor.visible = true;
+        }
+        else
+        {
+            Cursor.visible = false;
+        }
+
         // Set the respawn point for the player
         setRespawnPoint();
 
