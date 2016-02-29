@@ -407,9 +407,13 @@ public class playerController : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {            
-                print("Game Exit");
-                SceneManager.LoadSceneAsync("M_Menu");
+            print("Game Exit");
 
+            // Load the main menu
+            SceneManager.LoadSceneAsync("M_Menu");
+
+            // Renable the mouse cursor
+            Cursor.visible = true;
         }
     }
 }

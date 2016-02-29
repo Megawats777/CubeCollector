@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 using System.Collections;
 
 public class MainMenuNavigator : MonoBehaviour
@@ -16,7 +17,8 @@ public class MainMenuNavigator : MonoBehaviour
     {
         canSelectLevel = true;
 
-        
+        // Enable the mouse cursor
+        Cursor.visible = true;
 	}
 	
 	// Update is called once per frame
