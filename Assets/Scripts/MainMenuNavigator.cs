@@ -22,13 +22,11 @@ public class MainMenuNavigator : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-        // Manage level selection
-        selectLevel();
-
         // Exit the game
         exitGame();
 	}
 
+    /*
     // Level selection 
     private void selectLevel()
     {
@@ -43,9 +41,10 @@ public class MainMenuNavigator : MonoBehaviour
             }
         }
 
-
+    
 
     }
+    */
 
     // Exit the game
     private void exitGame()
