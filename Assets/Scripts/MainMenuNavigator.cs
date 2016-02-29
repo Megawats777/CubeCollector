@@ -16,15 +16,7 @@ public class MainMenuNavigator : MonoBehaviour
     {
         canSelectLevel = true;
 
-        // Hide the player's mouse cursor
-        if (Application.isEditor == true)
-        {
-            Cursor.visible = true;
-        }
-        else
-        {
-            Cursor.visible = false;
-        }
+        
 	}
 	
 	// Update is called once per frame
