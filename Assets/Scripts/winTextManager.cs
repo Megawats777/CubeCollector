@@ -11,6 +11,9 @@ public class winTextManager : MonoBehaviour {
     // Reference to the gameManager class
     public gameManager gameManagerRef;
 
+    // Message for win message for the text component
+    public string winMessage = "You Win";
+
 	// Use this for initialization
 	void Start () {
 
@@ -24,9 +27,10 @@ public class winTextManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	
+        // Update the content of the text component
         if (gameManagerRef.pickUpAmount == 0)
         {
-            winLabel.text = "You Win!";
+            winLabel.text = winMessage;
         }
         else if (gameManagerRef.clockLength < 1 )
         {
