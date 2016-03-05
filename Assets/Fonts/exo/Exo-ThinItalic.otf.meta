@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 3c548158222dc8342ba36ae609817323
-timeCreated: 1456869665
+guid: 623c1ca26a5ef8a45970326fda311f3a
+timeCreated: 1457188582
 licenseType: Free
 TrueTypeFontImporter:
   serializedVersion: 2
-  fontSize: 20
+  fontSize: 16
   forceTextureCase: -2
   characterSpacing: 1
   characterPadding: 0
@@ -13,7 +13,6 @@ TrueTypeFontImporter:
   fontNames: []
   fallbackFontReferences:
   - {fileID: 12800000, guid: 475dc852eebe79b408bcde70ec7ce265, type: 3}
-  - {fileID: 12800000, guid: 623c1ca26a5ef8a45970326fda311f3a, type: 3}
   - {fileID: 12800000, guid: 0b1b1924d9acda8419d1e691d4ea9a2b, type: 3}
   - {fileID: 12800000, guid: ce27b84467dc487449c6a07dd4e34ffe, type: 3}
   - {fileID: 12800000, guid: 2785f2057d03a44478dbad2f65541c56, type: 3}
@@ -21,6 +20,7 @@ TrueTypeFontImporter:
   - {fileID: 12800000, guid: 0f5f2bf60322d9a4a820892f34eca6b6, type: 3}
   - {fileID: 12800000, guid: 45200ac735a3dd64a8c748160099de81, type: 3}
   - {fileID: 12800000, guid: a6866c18ff6f72b4c8a2f21ac00a0883, type: 3}
+  - {fileID: 12800000, guid: 3c548158222dc8342ba36ae609817323, type: 3}
   - {fileID: 12800000, guid: c62aefd8284cb6b4e8d0a6f69d40ebc3, type: 3}
   - {fileID: 12800000, guid: 25a071f8d6e09814681d891b63840670, type: 3}
   - {fileID: 12800000, guid: f9cd675aea3737e44b6de17a831c0e5e, type: 3}
