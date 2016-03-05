@@ -13,13 +13,13 @@ public class MainMenuNavigator : MonoBehaviour
     public bool canSelectLevel;
 
     // Main Menu Canvas
-    public Canvas MainMenuCanvas;
+    public GameObject MainMenuCanvas;
 
     // Stage Select Canvas
-    public Canvas StageSelectCanvas;
+    public GameObject StageSelectCanvas;
 
     // How to play canvas
-    public Canvas HowToPlayCanvas;
+    public GameObject HowToPlayCanvas;
 
 	// Use this for initialization
 	void Start ()
@@ -28,6 +28,10 @@ public class MainMenuNavigator : MonoBehaviour
 
         // Enable the mouse cursor
         Cursor.visible = true;
+
+        MainMenuCanvas.SetActive(true);
+        StageSelectCanvas.SetActive(false);
+        HowToPlayCanvas.SetActive(false);
 	}
 	
 	// Update is called once per frame
@@ -42,13 +46,41 @@ public class MainMenuNavigator : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
-    public void hideCanvas()
+    // Open the stage select canvas
+    public void openStageSelect()
     {
-        if (isActiveAndEnabled == true)
+        if (StageSelectCanvas)
         {
-            HowToPlayCanvas.enabled = false;
+            MainMenuCanvas.SetActive(false);
+            StageSelectCanvas.SetActive(true);
         }
     }
+
+    // Open the how to play canvas
+    public void openHowtoPlay()
+    {
+        if (HowToPlayCanvas)
+        {
+            MainMenuCanvas.SetActive(false);
+            HowToPlayCanvas.SetActive(true);
+
+        }
+    }
+
+    // Hide the stage select canvas
+    public void hideStageSelect()
+    {
+        StageSelectCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(true);
+    }
+
+    // Hide the how to play canvas
+    public void hideHowtoPlay()
+    {
+        HowToPlayCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(true);
+    }
+
     // Exit the game
     public void exitGame()
     {
