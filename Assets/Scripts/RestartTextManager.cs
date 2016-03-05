@@ -13,7 +13,7 @@ public class RestartTextManager : MonoBehaviour
     public gameManager gameManagerRef;
 
     // Content for the restartText component
-    public string restartTextContent = "Press Space to restart game";
+    public string restartTextContent = "Press Space to Restart Game";
 
 	// Use this for initialization
 	void Start ()
