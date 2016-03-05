@@ -12,6 +12,15 @@ public class MainMenuNavigator : MonoBehaviour
     [HideInInspector]
     public bool canSelectLevel;
 
+    // Main Menu Canvas
+    public Canvas MainMenuCanvas;
+
+    // Stage Select Canvas
+    public Canvas StageSelectCanvas;
+
+    // How to play canvas
+    public Canvas HowToPlayCanvas;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -33,7 +42,13 @@ public class MainMenuNavigator : MonoBehaviour
         SceneManager.LoadScene(levelName);
     }
 
-
+    public void hideCanvas()
+    {
+        if (isActiveAndEnabled == true)
+        {
+            HowToPlayCanvas.enabled = false;
+        }
+    }
     // Exit the game
     public void exitGame()
     {
