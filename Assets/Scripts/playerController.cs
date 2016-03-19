@@ -118,7 +118,9 @@ public class playerController : MonoBehaviour {
         // Reference the gameManager
         getGameManager();
 
+        // Disable the player's physics properties
         setPlayerPhysics(false);
+        sphereBody.useGravity = false;
 
         // Set collision audio
         setCollisionClip();
@@ -332,7 +334,7 @@ public class playerController : MonoBehaviour {
         playerMesh.enabled = true;
 
         // Renable the player's gravity
-        sphereBody.useGravity = true;
+        sphereBody.useGravity = false;
 
         // Reduce and set the cube pickUp counter
         gameManagerRef.pickUpAmount = 0;
@@ -410,7 +412,7 @@ public class playerController : MonoBehaviour {
             print("Game Exit");
 
             // Load the main menu
-            SceneManager.LoadSceneAsync("M_Menu");
+            SceneManager.LoadScene("M_Menu");
 
             // Renable the mouse cursor
             Cursor.visible = true;

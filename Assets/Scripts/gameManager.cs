@@ -214,10 +214,9 @@ public class gameManager : MonoBehaviour {
             // Set isClockActive to false
             isClockActive = false;
 
-            playerSphere.setPlayerPhysics(false);
-
             // Disable player movement
             disablePlayerMovement();
+
         }
     }
 
@@ -250,7 +249,7 @@ public class gameManager : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (pickUpAmount <= 0 & isGameActive == true)
+            if (pickUpAmount <= 0 && isGameActive == true)
             {
                 isGameActive = false;
                 playerSphere.respawnProcess();
