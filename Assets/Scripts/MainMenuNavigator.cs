@@ -40,8 +40,14 @@ public class MainMenuNavigator : MonoBehaviour
         // Enable the mouse cursor
         Cursor.visible = true;
 
+        // Enable the main menu canvas
         MainMenuCanvas.SetActive(true);
+
+        // Disable all other menu canvas's
         StageSelectCanvas.SetActive(false);
+        easyStagesCanvas.SetActive(false);
+        mediumStagesCanvas.SetActive(false);
+        hardStagesCanvas.SetActive(false);
         HowToPlayCanvas.SetActive(false);
 	}
 	
