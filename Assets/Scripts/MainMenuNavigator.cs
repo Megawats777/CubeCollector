@@ -18,6 +18,17 @@ public class MainMenuNavigator : MonoBehaviour
     // Stage Select Canvas
     public GameObject StageSelectCanvas;
 
+    /*----Sub Stage Select Canavas's----*/
+
+    // Easy Stages Canvas
+    public GameObject easyStagesCanvas;
+
+    // Medium Stages Canvas
+    public GameObject mediumStagesCanvas;
+
+    // Hard Stages Canvas
+    public GameObject hardStagesCanvas;
+
     // How to play canvas
     public GameObject HowToPlayCanvas;
 
@@ -56,6 +67,38 @@ public class MainMenuNavigator : MonoBehaviour
         }
     }
 
+    //Open the sub stage select canvas's
+
+    // Open the easy stages canvas
+    public void openEasyStages()
+    {
+        if (easyStagesCanvas)
+        {
+            StageSelectCanvas.SetActive(false);
+            easyStagesCanvas.SetActive(true);
+        }
+    }
+
+    // Open the medium stages canvas
+    public void openMediumStages()
+    {
+        if (mediumStagesCanvas)
+        {
+            StageSelectCanvas.SetActive(false);
+            mediumStagesCanvas.SetActive(true);
+        }
+    }
+
+    // Open the hard stages canvas
+    public void openHardStages()
+    {
+        if (hardStagesCanvas)
+        {
+            StageSelectCanvas.SetActive(false);
+            hardStagesCanvas.SetActive(true);
+        }
+    }
+
     // Open the how to play canvas
     public void openHowtoPlay()
     {
@@ -63,7 +106,6 @@ public class MainMenuNavigator : MonoBehaviour
         {
             MainMenuCanvas.SetActive(false);
             HowToPlayCanvas.SetActive(true);
-
         }
     }
 
@@ -72,6 +114,29 @@ public class MainMenuNavigator : MonoBehaviour
     {
         StageSelectCanvas.SetActive(false);
         MainMenuCanvas.SetActive(true);
+    }
+
+    //Hide the sub stage select canvas's
+
+    // Hide the easy stages canvas
+    public void hideEasyStages()
+    {
+        easyStagesCanvas.SetActive(false);
+        StageSelectCanvas.SetActive(true);
+    }
+
+    // Hide the medium stages canvas
+    public void hideMediumStages()
+    {
+        mediumStagesCanvas.SetActive(false);
+        StageSelectCanvas.SetActive(true);
+    }
+
+    // Hide the hard stages canvas
+    public void hideHardStages()
+    {
+        hardStagesCanvas.SetActive(false);
+        StageSelectCanvas.SetActive(true);
     }
 
     // Hide the how to play canvas
