@@ -214,6 +214,8 @@ public class gameManager : MonoBehaviour {
             // Set isClockActive to false
             isClockActive = false;
 
+            playerSphere.setPlayerPhysics(false);
+
             // Disable player movement
             disablePlayerMovement();
         }
