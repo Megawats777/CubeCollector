@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Easy Stages/M_Stage_Diamond.unity
   - enabled: 1
     path: Assets/Scenes/Easy Stages/M_Stage_Silver.unity
+  - enabled: 1
+    path: Assets/Scenes/Easy Stages/M_Stage_Prospect.unity
