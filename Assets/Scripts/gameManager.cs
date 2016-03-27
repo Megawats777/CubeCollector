@@ -175,7 +175,7 @@ public class gameManager : MonoBehaviour {
     {
         playerSphere = FindObjectOfType<playerController>();
 
-        if(playerSphere)
+        if (playerSphere)
         {
             print("PlayerSphere referenced");
         }
@@ -254,9 +254,21 @@ public class gameManager : MonoBehaviour {
                 isGameActive = false;
                 playerSphere.respawnProcess();
                 disablePlayerMovement();
-                playerSphere.canStartGame = true;
+                playerSphere.setPlayerPhysics(false);
+                playerSphere.canStartGame = false;
+
+                // Delay before the player can start the game again
+                StartCoroutine(startGameDelay());
             }
         }
+    }
+
+    // Delay before the player can start the game again
+    IEnumerator startGameDelay()
+    {
+        yield return new WaitForSeconds(0.1f);
+        playerSphere.canStartGame = true;
+        print("Can Start Game Again");
     }
 
     // Pickup reference palet code
