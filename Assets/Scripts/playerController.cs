@@ -208,7 +208,7 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
-                if (Input.GetButton("PushUp"))
+                if (Input.GetButton("Push Up"))
                 {
                     rb.AddForce(new Vector3(0, pushUpForce, 0));
                 }
@@ -223,7 +223,7 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
-                if (Input.GetButton("PushDown"))
+                if (Input.GetButton("Push Down"))
                 {
                     rb.AddForce(new Vector3(0, pushDownForce, 0));
                 }
@@ -239,7 +239,7 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
-                if (Input.GetButton("PushLeft"))
+                if (Input.GetButton("Push Left"))
                 {
                     rb.AddForce(new Vector3(pushLeftForce, 0, 0));
                 }
@@ -255,7 +255,7 @@ public class playerController : MonoBehaviour {
         {
             if (canMove == true)
             {
-                if (Input.GetButton("PushRight"))
+                if (Input.GetButton("Push Right"))
                 {
                     rb.AddForce(new Vector3(pushRightForce, 0, 0));
                 }

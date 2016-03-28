@@ -8,10 +8,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/M_Menu.unity
   - enabled: 1
-    path: Assets/Scenes/Medium Stages/M_Stage_Icon.unity
-  - enabled: 1
-    path: Assets/Scenes/Medium Stages/M_Stage_Gold.unity
-  - enabled: 1
     path: Assets/Scenes/Easy Stages/M_Stage_Diamond.unity
   - enabled: 1
     path: Assets/Scenes/Easy Stages/M_Stage_Silver.unity
@@ -19,3 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Easy Stages/M_Stage_Prospect.unity
   - enabled: 1
     path: Assets/Scenes/Easy Stages/M_Stage_Gateway.unity
+  - enabled: 1
+    path: Assets/Scenes/Medium Stages/M_Stage_Progress.unity
+  - enabled: 1
+    path: Assets/Scenes/Medium Stages/M_Stage_Icon.unity
+  - enabled: 1
+    path: Assets/Scenes/Medium Stages/M_Stage_Gold.unity
