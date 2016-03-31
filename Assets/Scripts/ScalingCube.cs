@@ -15,7 +15,7 @@ public class ScalingCube : MonoBehaviour {
     private bool canScaleInYAxis = false;
 
     /*---The rate the object will change size---*/
-    [Range(0.0f, 1.0f), SerializeField]
+    [Range(0.0f, 5.0f), SerializeField]
     private float scalingRate = 1.0f;
 
     /*---The Dimensions of the scaled object---*/
@@ -97,7 +97,7 @@ public class ScalingCube : MonoBehaviour {
 	// If you can only scale the Y axis of the object only scale the Y axis in game
 	else if (canScaleInYAxis == true && canScaleInXAxis == false)
 	{
-	    transform.localScale = new Vector3(transform.localScale.x, newScaleY, transform.localScale.Z);
+	    transform.localScale = new Vector3(transform.localScale.x, newScaleY, transform.localScale.z);
 	}
 	
         // Change scaling mode for the X axis of the object
@@ -117,14 +117,14 @@ public class ScalingCube : MonoBehaviour {
             isGrowing = false;
             isShrinking = true;
 
-            transform.localScale -= new Vector3(0.01f, 0.0f, 0.0f);
+            transform.localScale -= new Vector3(0.000001f, 0.0f, 0.0f);
         }
         else if (transform.localScale.x == smallestXSize)
         {
             isGrowing = true;
             isShrinking = false;
 
-            transform.localScale += new Vector3(0.01f, 0.0f, 0.0f);
+            transform.localScale += new Vector3(0.000001f, 0.0f, 0.0f);
         }
     }
 
