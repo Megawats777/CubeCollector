@@ -87,8 +87,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb551610995ce4e49b06212040b62da9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canScaleInXAxis: 1
+  canScaleInYAxis: 0
   scalingRate: 1
-  largestXSize: 3
+  largestXSize: 5
+  largestYSize: 5
   scaleLerpValue: 0.0001
 --- !u!1001 &100100000
 Prefab:
