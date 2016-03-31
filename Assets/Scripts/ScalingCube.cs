@@ -43,15 +43,13 @@ public class ScalingCube : MonoBehaviour {
 
         // Set the default y axis of the object
         smallestYSize = transform.localScale.y;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update ()
-    {
-        // Set the scale of the object
-        setObjectScale();
-
-        //StartCoroutine(changeScaleMode());
+        {
+        	// Set the scale of the object
+        	setObjectScale();
 
 	}
 
@@ -82,14 +80,31 @@ public class ScalingCube : MonoBehaviour {
             newScaleY = Mathf.Lerp(smallestYSize, largestYSize, scaleLerpValue);
         }
 
-        // Set the scale of the object
-        transform.localScale = new Vector3(newScaleX, newScaleY, transform.localScale.z);
-
+        /*---Set the scale of the object---*/
+        
+        // If you can scale both the X and Y axis of the object
+        if (canScaleInXAxis == true && canScaleInYAxis == true)
+        {
+            transform.localScale = new Vector3(newScaleX, newScaleY, transform.localScale.z);
+	}
+	
+	// If you can only scale the X axis of the object only scale the X axis in game
+	else if (canScaleInXAxis == true && canScaleInYAxis == false)
+	{
+	    transform.localScale = new Vector3(newScaleX, transform.localScale.y, transform.localScale.z);		
+	}
+	
+	// If you can only scale the Y axis of the object only scale the Y axis in game
+	else if (canScaleInYAxis == true && canScaleInXAxis == false)
+	{
+	    transform.localScale = new Vector3(transform.localScale.x, newScaleY, transform.localScale.Z);
+	}
+	
         // Change scaling mode for the X axis of the object
         changeXAxisScaleMode();
 
         // Change scaling mode for the Y axis of the object
-        //changeYAxisScaleMode();
+        changeYAxisScaleMode();
 
     }
 
