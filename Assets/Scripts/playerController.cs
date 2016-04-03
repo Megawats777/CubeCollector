@@ -2,7 +2,8 @@
 using System.Collections;
 using UnityEngine.SceneManagement;
 
-public class playerController : MonoBehaviour {
+public class playerController : MonoBehaviour
+{
 
     // Reference to gameManager class
     [HideInInspector]

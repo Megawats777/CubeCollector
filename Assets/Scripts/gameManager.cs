@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class gameManager : MonoBehaviour {
+public class gameManager : MonoBehaviour
+{
 
     // Reference the mesh renderer component
     private MeshRenderer objectMesh;

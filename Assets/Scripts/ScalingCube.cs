@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ScalingCube : MonoBehaviour {
+public class ScalingCube : MonoBehaviour
+{
 
     /*---Variables---*/
     private float newScaleX = 0;
