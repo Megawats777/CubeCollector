@@ -93,11 +93,15 @@ public class pickUp : MonoBehaviour
     // When the trigger is overlaped
     void OnTriggerEnter(Collider other)
     {
-        // Play the collision sound
-        playCollisionSound();
+        // If the overlaping object is the player
+        if (other.tag == "Player")
+        {
+            // Play the collision sound
+            playCollisionSound();
 
-        // Disable the pickup
-        disablePickup();
+            // Disable the pickup
+            disablePickup();
+        }
     }
 
     // Renables pickups
