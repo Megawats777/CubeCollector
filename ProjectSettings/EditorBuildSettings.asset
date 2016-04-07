@@ -23,3 +23,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Medium Stages/M_Stage_Gold.unity
   - enabled: 1
     path: Assets/Scenes/Medium Stages/M_Stage_Time.unity
+  - enabled: 1
+    path: Assets/Scenes/Hard Stages/M_Stage_Improve.unity
