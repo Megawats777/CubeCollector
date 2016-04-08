@@ -23,7 +23,7 @@ public class SlidingCube : MonoBehaviour
     private float movementSpeed = 0.5f;
 
     // The lerp value of the location
-    [SerializeField]
+    [SerializeField, Range(0.0f, 1.0f)]
     private float positionLerpValue = 0.0001f;
 
     // The new locations of the object per axis
@@ -118,8 +118,6 @@ public class SlidingCube : MonoBehaviour
 
             // Decrease the lerp value a little bit
             positionLerpValue -= 0.00001f;
-
-            print("Moving to origin");
         }
         
         // If the location of the object is equal to the location of the origin point move to the nav point 
@@ -130,7 +128,6 @@ public class SlidingCube : MonoBehaviour
 
             // Increase the lerp value a little bit
             positionLerpValue += 0.00001f;
-            print("Moving to nav point");
         }
     }
 
