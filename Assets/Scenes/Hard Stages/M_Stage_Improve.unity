@@ -41,7 +41,7 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 6
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_LightmapsMode: 1
   m_GISettings:
     serializedVersion: 2
@@ -557,7 +557,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 450668, guid: ec73be4cc85d89e41b5ef4e55acc0ba5, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -5.65
+      value: -8.66
       objectReference: {fileID: 0}
     - target: {fileID: 450668, guid: ec73be4cc85d89e41b5ef4e55acc0ba5, type: 2}
       propertyPath: m_LocalRotation.x
