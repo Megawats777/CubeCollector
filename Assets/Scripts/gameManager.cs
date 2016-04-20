@@ -77,7 +77,7 @@ public class gameManager : MonoBehaviour
 
         // Reference the hudManager
         mainHUD = FindObjectOfType<hudManager>();
-
+    
         // Get the audio source component
         getClockAudioSource();
 

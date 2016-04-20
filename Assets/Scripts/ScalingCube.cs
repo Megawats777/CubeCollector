@@ -23,10 +23,10 @@ public class ScalingCube : MonoBehaviour
     private float smallestXSize = 0;
     private float smallestYSize = 1;
 
-    [Range(0.0f, 15.0f), SerializeField]
+    [Range(0.0f, 30.0f), SerializeField]
     private float largestXSize = 0.2f;
 
-    [Range(0.0f, 15.0f), SerializeField]
+    [Range(0.0f, 30.0f), SerializeField]
     private float largestYSize = 0.2f;
 
 
