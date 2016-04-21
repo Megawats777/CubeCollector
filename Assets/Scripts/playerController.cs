@@ -139,12 +139,6 @@ public class playerController : MonoBehaviour
         {
             canCollide = false;
         }
-
-        /*--DEBUG QUIT COMMAND--*/
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Application.Quit();
-        }
 	}
 
     // Called every frame before physics calculations
