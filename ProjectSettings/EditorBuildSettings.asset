@@ -29,3 +29,5 @@ EditorBuildSettings:
     path: Assets/Scenes/Hard Stages/M_Stage_Sideways.unity
   - enabled: 1
     path: Assets/Scenes/Hard Stages/M_Stage_Leadup.unity
+  - enabled: 1
+    path: Assets/Scenes/Hard Stages/M_Stage_Goodbye.unity
