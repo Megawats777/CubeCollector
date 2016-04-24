@@ -32,35 +32,107 @@ public class MainMenuNavigator : MonoBehaviour
     // How to play canvas
     public GameObject HowToPlayCanvas;
 
-	// Use this for initialization
-	void Start ()
-    {
-        canSelectLevel = true;
+    /*----Sub How to Play Canvas's----*/
 
+    // Controls help canvas
+    public GameObject controlsHelpCanvas;
+
+    // Game Rules help canvas
+    public GameObject gameRulesHelpCanvas;
+
+    // Did the player played a level
+    [SerializeField]
+    private bool playedLevel = false;
+
+    // Event triggered before start
+    void Awake()
+    {
+        // Check for the amount of main menu navigators
+        menuNavigatorAmountCheck();
+
+        // Dont destroy this object on load
+        DontDestroyOnLoad(gameObject);
+
+        // Check which menu canvas's to spawn when the menu level is loaded
+        canvasSpawnCheck();
+
+        // Find all the other canvases
+        findCanvases();
+    }
+
+    // Use this for initialization
+    void Start()
+    {
         // Enable the mouse cursor
         Cursor.visible = true;
+    }
 
-        // Enable the main menu canvas
-        MainMenuCanvas.SetActive(true);
+    // Update is called once per frame
+    void Update()
+    {
 
+    }
+
+    // Find all the other canvases
+    private void findCanvases()
+    {
+
+    }
+
+    // Check for the amount of main menu navigators
+    private void menuNavigatorAmountCheck()
+    {
+        MainMenuNavigator[] menuNavigatiors = FindObjectsOfType<MainMenuNavigator>();
+
+        // Perform a loop to see how many menu naivgators there are in the level
+        for (int i = 0; i < menuNavigatiors.Length; i++)
+        {
+            // If there is more than one menu navigator destroy the second menu navigator
+            if (i > 0)
+            {
+                Destroy(menuNavigatiors[1].gameObject);
+            }
+        }
+    }
+
+    // Check which menu canvas's to spawn when the menu level is loaded
+    private void canvasSpawnCheck()
+    {
+        // If the player has just started the game spawn the title screen
+        if (playedLevel == false)
+        {
+            print("Spawning title screen");
+            MainMenuCanvas.SetActive(true);
+            disableSecondaryCanvases();
+        }
+
+        // Otherwise spawn the stage select screen
+        else if (playedLevel == true)
+        {
+            print("Spawning stage select screen");
+            StageSelectCanvas.SetActive(true);
+        }
+
+    }
+
+    // Disable all other menu canvas's other than the main menu
+    private void disableSecondaryCanvases()
+    {
         // Disable all other menu canvas's
         StageSelectCanvas.SetActive(false);
         easyStagesCanvas.SetActive(false);
         mediumStagesCanvas.SetActive(false);
         hardStagesCanvas.SetActive(false);
         HowToPlayCanvas.SetActive(false);
-	}
-	
-	// Update is called once per frame
-	void Update ()
-    {
-       
-	}
+        controlsHelpCanvas.SetActive(false);
+        gameRulesHelpCanvas.SetActive(false);
+    }
 
     // Open a level
     public void openLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
+        playedLevel = true;
     }
 
     // Open the stage select canvas
@@ -150,6 +222,34 @@ public class MainMenuNavigator : MonoBehaviour
     {
         HowToPlayCanvas.SetActive(false);
         MainMenuCanvas.SetActive(true);
+    }
+
+    // Show the controls help canvas
+    public void showControlsHelp()
+    {
+        HowToPlayCanvas.SetActive(false);
+        controlsHelpCanvas.SetActive(true);
+    }
+
+    // Show the game rules help canvas
+    public void showGameRulesHelp()
+    {
+        HowToPlayCanvas.SetActive(false);
+        gameRulesHelpCanvas.SetActive(true);
+    }
+
+    // Hide the controls help canvas
+    public void hideControlsHelp()
+    {
+        controlsHelpCanvas.SetActive(false);
+        HowToPlayCanvas.SetActive(true);
+    }
+
+    // Hide the game rules help canvas
+    public void hideGameRulesHelp()
+    {
+        gameRulesHelpCanvas.SetActive(false);
+        HowToPlayCanvas.SetActive(true);
     }
 
     // Exit the game

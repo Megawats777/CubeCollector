@@ -86,7 +86,6 @@ public class playerController : MonoBehaviour
 	// Use this for initialization
 	void Start ()
     {
-
         sphereBody = GetComponent<Rigidbody>();
 
         playerMesh = GetComponent<MeshRenderer>();
