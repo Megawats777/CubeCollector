@@ -12,6 +12,7 @@ GameObject:
   - 23: {fileID: 2349662}
   - 114: {fileID: 11415714}
   - 82: {fileID: 8271060}
+  - 114: {fileID: 11421652}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 162710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.4628243, y: 10.02, z: -10.461367}
+  m_LocalPosition: {x: -3.4628243, y: 10.02, z: -23.09}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
   m_Father: {fileID: 0}
@@ -155,11 +156,23 @@ MonoBehaviour:
   playerSphere: {fileID: 0}
   pickUps: []
   pickUpAmount: 0
-  clockLength: 20
+  clockLength: 50
   isClockActive: 0
   clockSoundSource: {fileID: 0}
   clockTickSound: {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
   mainHUD: {fileID: 0}
+--- !u!114 &11421652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 162710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb2cc7be0432584394dc5e0dfe85e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  musicClips: []
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
