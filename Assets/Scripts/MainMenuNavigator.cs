@@ -43,9 +43,11 @@ public class MainMenuNavigator : MonoBehaviour
     // Event triggered before start
     void Awake()
     {
-
         // Dont destroy this object on load
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
+
+        // Show the main menu first
+        MainMenuCanvas.SetActive(true);
 
         // Check which menu canvas's to spawn when the menu level is loaded
         canvasSpawnCheck();

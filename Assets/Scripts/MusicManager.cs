@@ -9,10 +9,10 @@ public class MusicManager : MonoBehaviour
 
     // A list of music
     [SerializeField]
-    private AudioClip[] musicClips;
+    protected AudioClip[] musicClips;
 
     // A number to decide which song to play
-    int indexNum = 0;
+    protected int indexNum = 0;
 
     // Use this for initialization
     void Start()
@@ -31,7 +31,7 @@ public class MusicManager : MonoBehaviour
         soundSource.Play();
 
         // Start the playing the set of songs
-        InvokeRepeating("playSong", 0.0f, musicClips[indexNum].length + 0.5f);
+        InvokeRepeating("playSong", 0.0f, musicClips[indexNum].length + 1.0f);
     }
 
     // Update is called once per frame
@@ -41,14 +41,14 @@ public class MusicManager : MonoBehaviour
     }
 
     // Set a song index number and set the audio clip to be played
-    private void setIndexNum()
+    protected void setIndexNum()
     {
         indexNum = Random.Range(0, musicClips.Length);
         soundSource.clip = musicClips[indexNum];
     }
 
     // Play a song based on the song index number
-    private void playSong()
+    protected void playSong()
     {
         print("Music Changing");
 
@@ -60,7 +60,7 @@ public class MusicManager : MonoBehaviour
     }
 
     // Check if a song exists in the selected field
-    private void songCheck()
+    protected void songCheck()
     {
         if (musicClips[indexNum])
         {

@@ -2,7 +2,8 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class MenuButtonManager : MonoBehaviour {
+public class MenuButtonManager : MonoBehaviour
+{
 
     // Reference to text component
     [HideInInspector]
@@ -11,18 +12,18 @@ public class MenuButtonManager : MonoBehaviour {
     // Color of the text when hovered
     //public Color32 hoverTextColor;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         // Get the text component
         buttonText = GetComponentInChildren<Text>();
-	}
-	
-	// Update is called once per frame
-	void Update ()
+    }
+
+    // Update is called once per frame
+    void Update()
     {
-	
-	}
+
+    }
 
     void OnMouseOver()
     {
