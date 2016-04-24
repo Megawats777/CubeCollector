@@ -40,6 +40,9 @@ public class MainMenuNavigator : MonoBehaviour
     // Game Rules help canvas
     public GameObject gameRulesHelpCanvas;
 
+    // Loading screen canvas
+    public GameObject loadingCanvas;
+
     // Event triggered before start
     void Awake()
     {
@@ -49,11 +52,8 @@ public class MainMenuNavigator : MonoBehaviour
         // Show the main menu first
         MainMenuCanvas.SetActive(true);
 
-        // Check which menu canvas's to spawn when the menu level is loaded
-        canvasSpawnCheck();
-
-        // Find all the other canvases
-        findCanvases();
+        // Disable all other menu canvas's other than the main menu
+        disableSecondaryCanvases();
     }
 
     // Use this for initialization
@@ -120,14 +120,21 @@ public class MainMenuNavigator : MonoBehaviour
         easyStagesCanvas.SetActive(false);
         mediumStagesCanvas.SetActive(false);
         hardStagesCanvas.SetActive(false);
+
         HowToPlayCanvas.SetActive(false);
         controlsHelpCanvas.SetActive(false);
         gameRulesHelpCanvas.SetActive(false);
+
+        loadingCanvas.SetActive(false);
     }
 
     // Open a level
     public void openLevel(string levelName)
     {
+        // Disable all other canvas's
+        disableSecondaryCanvases();
+
+        loadingCanvas.SetActive(true);
         SceneManager.LoadScene(levelName);
     }
 
