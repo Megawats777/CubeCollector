@@ -40,15 +40,9 @@ public class MainMenuNavigator : MonoBehaviour
     // Game Rules help canvas
     public GameObject gameRulesHelpCanvas;
 
-    // Did the player played a level
-    [SerializeField]
-    private bool playedLevel = false;
-
     // Event triggered before start
     void Awake()
     {
-        // Check for the amount of main menu navigators
-        menuNavigatorAmountCheck();
 
         // Dont destroy this object on load
         DontDestroyOnLoad(gameObject);
@@ -98,6 +92,7 @@ public class MainMenuNavigator : MonoBehaviour
     // Check which menu canvas's to spawn when the menu level is loaded
     private void canvasSpawnCheck()
     {
+        /*
         // If the player has just started the game spawn the title screen
         if (playedLevel == false)
         {
@@ -112,7 +107,7 @@ public class MainMenuNavigator : MonoBehaviour
             print("Spawning stage select screen");
             StageSelectCanvas.SetActive(true);
         }
-
+        */
     }
 
     // Disable all other menu canvas's other than the main menu
@@ -132,7 +127,6 @@ public class MainMenuNavigator : MonoBehaviour
     public void openLevel(string levelName)
     {
         SceneManager.LoadScene(levelName);
-        playedLevel = true;
     }
 
     // Open the stage select canvas
