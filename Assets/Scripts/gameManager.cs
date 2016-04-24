@@ -61,6 +61,10 @@ public class gameManager : MonoBehaviour
     [HideInInspector]
     public hudManager mainHUD;
 
+    // Reference to the clock sound manager
+    [HideInInspector]
+    public ClockSoundManager clockSoundManager;
+
     // Use this for initialization
     void Start()
     {
@@ -83,6 +87,8 @@ public class gameManager : MonoBehaviour
 
         // Set clock audio clip
         setClockAudioClip();
+
+        clockSoundManager = FindObjectOfType<ClockSoundManager>();
 
         playerScore = 0;
 
@@ -115,7 +121,7 @@ public class gameManager : MonoBehaviour
             // If the clocklength is less than 1 then play a sound
             if (clockLength < 1)
             {
-                //clockSoundSource.Play();
+                clockSoundManager.soundSource.Play();
             }
         }
     }
