@@ -40,6 +40,9 @@ public class MainMenuNavigator : MonoBehaviour
     // Game Rules help canvas
     public GameObject gameRulesHelpCanvas;
 
+    // Credits canvas
+    public GameObject creditsCanvas;
+
     // Loading screen canvas
     public GameObject loadingCanvas;
 
@@ -253,6 +256,20 @@ public class MainMenuNavigator : MonoBehaviour
     {
         gameRulesHelpCanvas.SetActive(false);
         HowToPlayCanvas.SetActive(true);
+    }
+
+    // Show the credits canvas
+    public void showCredits()
+    {
+        MainMenuCanvas.SetActive(false);
+        creditsCanvas.SetActive(true);
+    }
+
+    // Hide the credits canvas
+    public void hideCredits()
+    {
+        creditsCanvas.SetActive(false);
+        MainMenuCanvas.SetActive(true);
     }
 
     // Exit the game

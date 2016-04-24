@@ -23,7 +23,7 @@ public class MenuMusicManager : MusicManager
         */
 
         // Start the playing the set of songs
-        InvokeRepeating("playSong", 1.0f, musicClips[indexNum].length + 1.0f);
+        InvokeRepeating("playSong", 0.0f, musicClips[indexNum].length + 1.0f);
     }
 
     // Update is called once per frame
