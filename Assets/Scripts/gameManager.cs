@@ -51,11 +51,11 @@ public class gameManager : MonoBehaviour
     private float defaultClockLength;
 
     // Clock Audio Source
-    [HideInInspector]
-    public AudioSource clockSoundSource;
+    //[HideInInspector]
+    //public AudioSource clockSoundSource;
 
     // Clock Audio Clip
-    public AudioClip clockTickSound;
+    //wpublic AudioClip clockTickSound;
 
     // Reference the mainHUD
     [HideInInspector]
@@ -115,7 +115,7 @@ public class gameManager : MonoBehaviour
             // If the clocklength is less than 1 then play a sound
             if (clockLength < 1)
             {
-                clockSoundSource.Play();
+                //clockSoundSource.Play();
             }
         }
     }
@@ -189,13 +189,13 @@ public class gameManager : MonoBehaviour
     // Get audio source
     private void getClockAudioSource()
     {
-        clockSoundSource = GetComponent<AudioSource>();
+        //clockSoundSource = GetComponent<AudioSource>();
     }
 
     // Set clock audio clip
     private void setClockAudioClip()
     {
-        clockSoundSource.clip = clockTickSound;
+        //clockSoundSource.clip = clockTickSound;
     }
 
     // Reduce pickUp amount
