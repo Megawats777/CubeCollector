@@ -2,3 +2,12 @@
 Licensed under Creative Commons: By Attribution 3.0 License
 http://creativecommons.org/licenses/by/3.0/
 
+CGI Snake by Chris Zabriskie is licensed under a Creative Commons Attribution license
+(https://creativecommons.org/licenses/by/4.0/)
+Source: http://chriszabriskie.com/divider/
+Artist: http://chriszabriskie.com/
+
+Oxygen Garden by Chris Zabriskie is licensed under a Creative Commons Attribution license
+(https://creativecommons.org/licenses/by/4.0/)
+Source: http://chriszabriskie.com/divider/
+Artist: http://chriszabriskie.com/

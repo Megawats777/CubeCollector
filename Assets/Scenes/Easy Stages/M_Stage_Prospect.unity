@@ -631,7 +631,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 496096, guid: fc82a70863005d14c9298f8a63c1309e, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -23.09
+      value: -10.79
       objectReference: {fileID: 0}
     - target: {fileID: 496096, guid: fc82a70863005d14c9298f8a63c1309e, type: 2}
       propertyPath: m_LocalRotation.x
@@ -654,9 +654,9 @@ Prefab:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 11421652, guid: fc82a70863005d14c9298f8a63c1309e, type: 2}
-      propertyPath: musicClips.Array.data[0]
+      propertyPath: musicClips.Array.data[2]
       value: 
-      objectReference: {fileID: 8300000, guid: b558ee784a80eab42b0381f82f2bf224, type: 3}
+      objectReference: {fileID: 8300000, guid: c17fdd3674cb70540bade3005e7a98a2, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc82a70863005d14c9298f8a63c1309e, type: 2}
   m_IsPrefabParent: 0
